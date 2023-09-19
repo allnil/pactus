@@ -203,7 +203,7 @@ func (t *tableMaker) addRowBool(key string, val bool) {
 func (t *tableMaker) addRowInts(key string, vals []int32) {
 	t.w.WriteString(fmt.Sprintf("<tr><td>%s</td><td>", key))
 	for _, n := range vals {
-		t.w.WriteString(fmt.Sprintf("%d, ", n))
+		t.w.WriteString(fmt.Sprintf("%d, ", n)) //nolint:staticcheck
 	}
 	t.w.WriteString("</td></tr>")
 }

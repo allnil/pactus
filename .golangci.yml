@@ -28,7 +28,6 @@ linters:
     - forbidigo # Consider to enable it
     - gci  # Consider to enable it (add it to make fmt)
     - godox # Consider to enable it (only show warning)
-    - gocritic # Consider to enable it
     - wsl # Consider to enable it
     - containedctx # Consider to enable it
     - contextcheck # Consider to enable it
@@ -53,6 +52,19 @@ linters-settings:
 
   godox:
     severity: warning
+  
+  gocritic:
+    enabled-tags:
+      - diagnostic
+      - experimental
+      - opinionated
+      - performance
+      - style
+    disabled-checks:
+      - importShadow
+      - whyNoLint
+      - unnamedResult
+      - appendAssign
 
   predeclared:
     # Comma-separated list of predeclared identifiers to not report on.
@@ -69,6 +81,7 @@ linters-settings:
       rules:
         json: snake
         yaml: snake
+
 
 issues:
   exclude-rules:

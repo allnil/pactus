@@ -144,8 +144,8 @@ func (ts *TestSuite) RandRound() int16 {
 }
 
 // RandBytes returns a slice of random bytes of the given length.
-func (ts *TestSuite) RandBytes(len int) []byte {
-	buf := make([]byte, len)
+func (ts *TestSuite) RandBytes(length int) []byte {
+	buf := make([]byte, length)
 	_, err := ts.Rand.Read(buf)
 	if err != nil {
 		panic(err)
@@ -154,10 +154,10 @@ func (ts *TestSuite) RandBytes(len int) []byte {
 }
 
 // RandString generates a random string of the given length.
-func (ts *TestSuite) RandString(len int) string {
+func (ts *TestSuite) RandString(length int) string {
 	const letterBytes = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-	b := make([]byte, len)
+	b := make([]byte, length)
 	for i := range b {
 		b[i] = letterBytes[ts.RandInt(52)]
 	}
